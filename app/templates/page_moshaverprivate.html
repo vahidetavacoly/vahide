@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}
+پنل کاربری
+{{ user_st.user }}
+
+{% endblock %}
+
+{% block user %}
+    {% if user_st.state == True %}
+    شما با نام کاربری
+    {{ user_st.user }}
+    در سایت هستید
+    <a class="btn-btn-dager" href="/autoapp/logouts "> خروج </a>
+    {% endif %}
+    {% if user_st.state == False %}
+    وارد حساب خود شوید
+
+    {% endif %}
+
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<header class="nav-container">
+    <nav class="sina-nav mobile-sidebar navbar-fixed" data-top="60">
+        <div class="container">
+
+            <div class="extension-nav">
+                <ul class="pt-2">
+                   
+                </ul>
+            </div>
+            <div class="sina-nav-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="sina-brand pl-4" href="/Index">
+                    <img src="{%static 'Images/logo.png'%}" class="img-fluid" />
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <ul class="sina-menu sina-menu-center IRANSansWeb">
+                   
+                    <li><a href="/padcast_d">پادکست  </a>
+                       
+                    <li>
+                        <a href="/test_d">  تست</a>
+                    </li>
+                           
+                           
+                       
+                    </li>
+           
+                    <li><a href="/vidio_d"> فیلم</a>
+                      
+                   
+                    <li><a href='consultant/appointments/'>   لیست نوبت ها </a></li>
+                    <li><a href="/list_Faq">پرسش و پاسخ</a></li>
+                  
+                    <li><a href="/gallery_2 ">  عکس</a></li>
+                    <li>
+                        <a id="loginbtn" href="/index" class="btn btn-link p-1 ml-2">
+                            <img src="{% static 'Images/Svg/login.svg' %}"/><span class="mr-1">  صفحه اصلی </span> 
+                        </a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+ 
+
+    <section class="mt-3 ">
+    
+        <div class="container">
+         
+     
+         
+           
+          
+           
+            
+          
+        </div>
+     
+        <div class="container">
+            <div class="row box  mx-wh  p-4  bg-half">
+             
+                <div class="col-md-3  text-center">
+                    <img src="{{ info.imag.url }}" class="img-fluid rounded-circle border pic160" />
+                
+                    <p class="pt-3 IRANSansWeb_Medium">کد مشاور : 1245</p>
+                </div>
+                <div class="col-md-9 text-md-right text-center">
+               
+                    <h3 class="IRANSansWeb_Medium text-white b-dark mb-0"></h3> {{ info.namefull }}</h3>
+                    <span class="float-md-left float-none">
+                        <i class="fas fa-star text-warning"></i>   <p><strong>کد ملی:</strong> {{ info.codemeli }}</p>
+                        <p><strong>ایمیل:</strong> {{ info.email }}</p>
+                        <i class="fas fa-star text-warning"></i>   
+                   
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </span>
+                    <p class="text-sm-white IRANSansWeb_Medium text-white b-dark">   {{item.typetakhasos}}</p>
+                    <p class="mt-3 mb-0 IRANSansWeb_Medium text-success"><i class="online ml-2"></i>آماده پاسخگویی</p>
+              <p>
+                  <span class="IRANSansWeb_Medium"> 4158 سوال (در مدت 2 سال و 5 ماه )</span>
+                  <span class="IRANSansWeb_Medium text-primary  p-2 rad12 mb-0"><i class="far fa-comment pl-2"></i>2549 نظر</span>
+
+              </p>
+
+
+                    
+                </div>
+            </div>
+    
+           
+          
+
+        </div>
+    </section>
+
+
+
+
+</body>
+{% endblock %}
+{% block script %}
+
+<script>
+    function goToId(hash, animationTime) {
+        var target = hash,
+            scrollTop = target != "" ? $(target).offset().top : 0;
+        $('html, body').stop().animate({
+            'scrollTop': scrollTop
+        }, animationTime, 'swing', function () {
+            window.location.hash = target;
+        });
+    }
+</script>
+
+   
+{{ form.media }}
+   <script src="{% static 'js/appointment.js' %}"></script>
+
+{% endblock %}
+
